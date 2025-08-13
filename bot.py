@@ -19,6 +19,7 @@ ssl_context.verify_mode = ssl.CERT_NONE
 
 # Монети + лімітки
 CONTRACTS = {
+    "C_USDT": 0.27,
     "TOWNS_USDT": 0.365,   # лімітка в USDT
     "K_USDT": 0.265
 }
@@ -74,3 +75,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
