@@ -17,6 +17,7 @@ if not TELEGRAM_BOT_TOKEN or not CHAT_IDS:
 CONTRACTS = {
     "TOWNS_USDT": float(os.getenv("TOWNS_LIMIT", "0.33")),
     "K_USDT": float(os.getenv("K_LIMIT", "0.25")),
+    "SNEK_USDT": float(os.getenv("SNEK_LIMIT", "0.0075"))
 }
 
 # Поріг відсоткового зростання (наприклад, 10 означає +10% від останнього надісланого)
@@ -84,3 +85,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
