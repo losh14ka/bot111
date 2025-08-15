@@ -9,6 +9,8 @@ load_dotenv()
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 CHAT_ID_MAIN = os.getenv("CHAT_ID")
 CHAT_ID_FRIEND = os.getenv("CHAT_ID_FRIEND")
+CHAT_ID_FRIEND1 = os.getenv("CHAT_ID_FRIEND1")
+
 
 if not TELEGRAM_BOT_TOKEN or not CHAT_ID_MAIN or not CHAT_ID_FRIEND:
     raise RuntimeError("В .env немає TELEGRAM_BOT_TOKEN, CHAT_ID або CHAT_ID_FRIEND")
@@ -74,6 +76,7 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 
 
 
