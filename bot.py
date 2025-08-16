@@ -9,7 +9,7 @@ load_dotenv()
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 CHAT_ID_MAIN = os.getenv("CHAT_ID")
 CHAT_ID_FRIEND = os.getenv("CHAT_ID_FRIEND")
-CHAT_ID_FRIEND1 = os.getenv("CHAT_ID_FRIEND1")
+CHAT_ID_FRIEND2 = os.getenv("CHAT_ID_FRIEND2")
 
 if not TELEGRAM_BOT_TOKEN or not CHAT_ID_MAIN or not CHAT_ID_FRIEND:
     raise RuntimeError("В .env немає TELEGRAM_BOT_TOKEN, CHAT_ID або CHAT_ID_FRIEND")
@@ -32,9 +32,12 @@ last_sent_price = {symbol: None for symbol in CONTRACTS | SPOT_TOKENS}
 
 async def send_message(text: str):
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+    chat_ids = [CHAT_ID_MAIN, CHAT_ID_FRIEND, os.getenv("CHAT_ID_FRIEND2")]
     async with aiohttp.ClientSession() as session:
-        for chat_id in [CHAT_ID_MAIN, CHAT_ID_FRIEND]:
-            await session.post(url, data={"chat_id": chat_id, "text": text}, ssl=ssl_context)
+        for chat_id in chat_ids:
+            if chat_id:  # перевірка, щоб не було None
+                await session.post(url, data={"chat_id": chat_id, "text": text}, ssl=ssl_context)
+
 
 async def get_futures_price(contract: str):
     url = "https://api.gateio.ws/api/v4/futures/usdt/tickers"
@@ -108,6 +111,7 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 
 
 
