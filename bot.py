@@ -32,11 +32,12 @@ last_sent_price = {symbol: None for symbol in CONTRACTS | SPOT_TOKENS}
 
 async def send_message(text: str):
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-    chat_ids = [CHAT_ID_MAIN, CHAT_ID_FRIEND, os.getenv("CHAT_ID_FRIEND2")]
+    chat_ids = [CHAT_ID_MAIN, CHAT_ID_FRIEND, CHAT_ID_FRIEND2]
     async with aiohttp.ClientSession() as session:
         for chat_id in chat_ids:
             if chat_id:  # перевірка, щоб не було None
                 await session.post(url, data={"chat_id": chat_id, "text": text}, ssl=ssl_context)
+
 
 
 async def get_futures_price(contract: str):
@@ -111,6 +112,7 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 
 
 
