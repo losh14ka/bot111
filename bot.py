@@ -23,7 +23,7 @@ CONTRACTS = {
     "K_USDT": 0.25,       # ф’ючерси
 }
 SPOT_TOKENS = {
-    "SNEK_USDT": 0.002    # спот
+    "SNEK_USDT": 0.0075    # спот
 }
 
 # Збереження останніх цін
@@ -107,3 +107,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
