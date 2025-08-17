@@ -20,7 +20,7 @@ ssl_context.verify_mode = ssl.CERT_NONE
 
 # Монети + лімітки
 CONTRACTS = {
-    "TOWNS_USDT": 0.312,   # ф’ючерси
+    "TOWNS_USDT": 0.0312,   # ф’ючерси
     "K_USDT": 0.23,       # ф’ючерси
 }
 SPOT_TOKENS = {
@@ -112,6 +112,7 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 
 
 
