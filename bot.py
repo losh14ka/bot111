@@ -19,9 +19,8 @@ ssl_context.check_hostname = False
 ssl_context.verify_mode = ssl.CERT_NONE
 
 # Монети + лімітки
-CONTRACTS = {
-    "TOWNS_USDT": 0.032,   # ф’ючерси
-    "K_USDT": 0.226,       # ф’ючерси
+CONTRACTS = {  # ф’ючерси
+    "K_USDT": 0.226       # ф’ючерси
 }
 SPOT_TOKENS = {
     "SNEK_USDT": 0.0075    # спот
@@ -112,6 +111,7 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 
 
 
