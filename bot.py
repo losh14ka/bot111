@@ -103,14 +103,15 @@ async def check_prices():
             else:
                 await send_message(f"Не вдалося отримати ціну для {token} (спот)")
 
-        await asyncio.sleep(60)
+        await asyncio.sleep(180)
 
 async def main():
-    await send_message("Бот запущено ✅ Відстежуємо TOWNS, K (ф’ючерси) та SNEK (спот)")
+    await send_message("Бот запущено ✅ Відстежуємо K (ф’ючерси) та SNEK (спот) діма даун(спот)")
     await check_prices()
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 
 
 
