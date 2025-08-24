@@ -20,7 +20,7 @@ ssl_context.verify_mode = ssl.CERT_NONE
 
 # Монети + лімітки
 CONTRACTS = {  # ф’ючерси
-    "K_USDT": 0.228       # ф’ючерси
+    "K_USDT": 0.25       # ф’ючерси
 }
 SPOT_TOKENS = {
     "SNEK_USDT": 0.0075    # спот
@@ -103,7 +103,7 @@ async def check_prices():
             else:
                 await send_message(f"Не вдалося отримати ціну для {token} (спот)")
 
-        await asyncio.sleep(180)
+        await asyncio.sleep(60)
 
 async def main():
     await send_message("Бот запущено ✅ Відстежуємо K (ф’ючерси) та SNEK (спот) діма даун(спот)")
@@ -111,6 +111,7 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 
 
 
